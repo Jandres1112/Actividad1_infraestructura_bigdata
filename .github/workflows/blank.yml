@@ -29,10 +29,4 @@ jobs:
       - name: ▶ Ejecutar Notebook
         run: |
           jupyter nbconvert --to notebook --execute Actividad_1_infra.ipynb --output Actividad_1_infra_executed.ipynb
-      - name: 🔄 Commit y Push cambios
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "Notebook ejecutado automáticamente" || echo "No hay cambios"
-          git push
+      
