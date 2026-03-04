@@ -26,7 +26,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install nbconvert
+
       - name: ▶ Ejecutar Notebook
         run: |
           jupyter nbconvert --to notebook --execute Actividad_1_infra.ipynb --output Actividad_1_infra_executed.ipynb
-      
+
+      - name: 💾 Commit y Push del notebook ejecutado
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add Actividad_1_infra_executed.ipynb
+          git commit -m "Notebook ejecutado automáticamente" || echo "No changes to commit"
+          git push
