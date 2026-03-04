@@ -1,0 +1,38 @@
+# Data Processing
+pandas
+numpy
+
+# Requests / APIs
+requests
+
+# Database
+sqlalchemy
+sqlite-utils
+
+# Excel / Files
+openpyxl
+xlsxwriter
+
+# Notebook Tools
+jupyter
+nbconvert
+
+# Visualization (opcional pero útil)
+matplotlib
+seaborn
+
+# Data Science Utilities
+scikit-learn
+
+# Web Parsing (si llegas a necesitar scraping)
+beautifulsoup4
+lxml
+
+# Logging & Utilities
+python-dotenv
+
+# NLP (solo si lo vas a usar)
+spacy
+
+# Descargar modelo spacy (se instala aparte si se usa)
+# python -m spacy download en_core_web_sm

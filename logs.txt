@@ -1,0 +1,6 @@
+RESUMEN DE AUDITORÍA
+====================
+Registros extraídos de la API: 100
+Registros guardados en la DB: 100
+
+ESTADO: Sincronización Exitosa.
