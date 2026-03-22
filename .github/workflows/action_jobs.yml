@@ -13,9 +13,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pandas openpyxl notebook
-      - run: jupyter nbconvert --to notebook --execute     Actividad1_infraestructura_bigdata
-
-/Actividad_1_infra1.ipynb
+      - run: jupyter nbconvert --to notebook --execute     Actividad1_infraestructura_bigdata /Actividad_1_infra1.ipynb
 
   notebook2:
     runs-on: ubuntu-latest
@@ -26,9 +24,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pandas openpyxl notebook
-      - run: jupyter nbconvert --to notebook --execute     Actividad1_infraestructura_bigdata
-
-/Act2(1).ipynb
+      - run: jupyter nbconvert --to notebook --execute     Actividad1_infraestructura_bigdata /Act2(1).ipynb
 
       - name: 💾 Commit y Push del notebook ejecutado
         run: |
