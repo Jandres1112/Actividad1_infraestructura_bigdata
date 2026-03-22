@@ -25,7 +25,7 @@ jobs:
 
       - name: ▶️ Ejecutar notebook 1
         run: |
-          jupyter nbconvert --to notebook --execute  Actividad_1_infra1.ipynb
+          jupyter nbconvert --to notebook --execute  Actividad_1_infra1V2.ipynb
           --output Actividad_1_infra1_out.ipynb
 
       - name: 💾 Guardar resultado
