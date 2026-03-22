@@ -1,0 +1,35 @@
+name: Ejecutar Notebooks
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  notebook1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas openpyxl notebook
+      - run: jupyter nbconvert --to notebook --execute notebooks/Actividad_1_infra.ipynb
+
+  notebook2:
+    runs-on: ubuntu-latest
+    needs: notebook1  # opcional (depende del flujo)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas openpyxl notebook
+      - run: jupyter nbconvert --to notebook --execute notebooks/Act2(1).ipynb
+
+      - name: 💾 Commit y Push del notebook ejecutado
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add Actividad_1_infra_executed.ipynb
+          git commit -m "Notebook ejecutado automáticamente" || echo "No changes to commit"
+          git push
