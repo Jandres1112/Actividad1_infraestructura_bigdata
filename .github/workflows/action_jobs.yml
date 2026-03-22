@@ -7,29 +7,60 @@ on:
 jobs:
   notebook1:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: 📥 Clonar repo
+        uses: actions/checkout@v4
+
+      - name: 🔍 Ver estructura (debug)
+        run: ls -R
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pandas openpyxl notebook
-      - run: jupyter nbconvert --to notebook --execute     notebooks /Actividad_1_infra1.ipynb
+
+      - name: 📦 Instalar dependencias
+        run: pip install pandas openpyxl notebook
+
+      - name: ▶️ Ejecutar notebook 1
+        run: |
+          jupyter nbconvert --to notebook --execute notebooks/Actividad_1_infra1.ipynb \
+          --output Actividad_1_infra1_out.ipynb
+
+      - name: 💾 Guardar resultado
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add Actividad_1_infra1_out.ipynb
+          git commit -m "Notebook 1 ejecutado" || echo "Sin cambios"
+          git push
 
   notebook2:
     runs-on: ubuntu-latest
-    needs: notebook1  # opcional (depende del flujo)
+    needs: notebook1
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: 📥 Clonar repo
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pandas openpyxl notebook
-      - run: jupyter nbconvert --to notebook --execute     notebooks /Act2(1).ipynb
 
-      - name: 💾 Commit y Push del notebook ejecutado
+      - name: 📦 Instalar dependencias
+        run: pip install pandas openpyxl notebook
+
+      - name: ▶️ Ejecutar notebook 2
+        run: |
+          jupyter nbconvert --to notebook --execute notebooks/act2.ipynb \
+          --output act2_out.ipynb
+
+      - name: 💾 Guardar resultado
         run: |
           git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add Actividad_1_infra_executed.ipynb
-          git commit -m "Notebook ejecutado automáticamente" || echo "No changes to commit"
+          git config user.email "actions@github.com"
+          git add act2_out.ipynb
+          git commit -m "Notebook 2 ejecutado" || echo "Sin cambios"
           git push
