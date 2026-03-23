@@ -54,7 +54,7 @@ jobs:
 
       - name: ▶️ Ejecutar notebook 2
         run: |
-          jupyter nbconvert --to notebook --execute act2.ipynb --output act2_out.ipynb
+          jupyter nbconvert --to notebook --execute Act2V2.ipynb --output Act2V2_out.ipynb
 
       - name: 💾 Guardar resultado
         run: |
