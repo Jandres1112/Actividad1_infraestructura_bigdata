@@ -3,7 +3,8 @@ name: Ejecutar Notebooks
 on:
   push:
   workflow_dispatch:
-
+permissions:
+  contents: write
 jobs:
   notebook1:
     runs-on: ubuntu-latest
